@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actors Quest</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Ma Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Actors Quest</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Mon Header -->
+    <header class="bg-primary text-white text-center py-5">
+        <h1>Actors Quest</h1>
+        <p>Recherchez un acteur pour obtenir des informations et sa filmographie</p>
+    </header>
+
+    <!-- Ma bar de echerch  -->
+    <div class="container my-4">
+        <div class="input-group mb-3">
+            <input type="text" id="search" class="form-control" placeholder="Rechercher un acteur..." aria-label="Rechercher un acteur" aria-describedby="button-search">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button" onclick="searchActor()" id="button-search">Rechercher</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- section resultat -->
+    <div class="container">
+        <div id="results" class="row"></div>
+    </div>
+
+    <!-- mes cdn-->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- mes fichier js -->
+    <script src="config.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
