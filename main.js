@@ -1,7 +1,66 @@
-// main.js
+// Charger l'historique depuis le localStorage lorsque la page est chargée
+const historique = JSON.parse(localStorage.getItem('historique')) || [];
 
+// Fonction pour ajouter un acteur à l'historique
+function ajouterHistorique(actorName) {
+    // Ajouter l'acteur à l'historique (éviter les doublons)
+    if (!historique.includes(actorName)) {
+        historique.push(actorName);
+    }
+
+    // Sauvegarder l'historique dans le localStorage
+    localStorage.setItem('historique', JSON.stringify(historique));
+
+    // Afficher l'historique
+    afficherHistorique();
+}
+
+// Fonction pour afficher l'historique
+function afficherHistorique() {
+    const historyButton = document.getElementById('history-button');
+    
+    // Ouvrir une fenêtre modale ou un autre élément pour afficher l'historique
+    historyButton.addEventListener('click', function() {
+        // Vérifier si l'historique est déjà affiché, et le supprimer si c'est le cas
+        const existingHistoryContainer = document.querySelector('.historique-container');
+        if (existingHistoryContainer) {
+            existingHistoryContainer.remove();
+        }
+
+        // Créer un nouveau conteneur pour l'historique
+        const historiqueContainer = document.createElement('div');
+        historiqueContainer.classList.add('container', 'historique-container');
+        
+        const historiqueList = document.createElement('ul');
+        historiqueList.classList.add('list-group');
+
+        // Ajouter les éléments de l'historique dans la liste
+        historique.forEach(actor => {
+            const li = document.createElement('li');
+            li.classList.add('list-group-item');
+            li.textContent = actor;
+            historiqueList.appendChild(li);
+        });
+
+        // Ajouter la liste dans le conteneur et l'ajouter au body
+        historiqueContainer.appendChild(historiqueList);
+        document.body.appendChild(historiqueContainer);
+    });
+}
+
+// Charger l'historique dès que la page se charge
+afficherHistorique();
+
+// Recherche d'acteur
 async function rechercherActeur() {
     const query = document.getElementById('search').value;
+
+    // Vérifier si la recherche n'est pas vide
+    if (!query.trim()) {
+        alert("Veuillez entrer un nom d'acteur.");
+        return;
+    }
+
     const url = `https://api.themoviedb.org/3/search/person?api_key=${API_KEY}&query=${encodeURIComponent(query)}`;
 
     try {
@@ -32,6 +91,7 @@ async function rechercherActeur() {
                 // Ajouter un événement de clic pour afficher les détails de l'acteur et sa filmographie
                 actorCard.addEventListener('click', function() {
                     afficherDetailsActeur(actor.id);
+                    ajouterHistorique(actor.name);  // Ajouter à l'historique
                 });
             });
         } else {

@@ -1,59 +1,31 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Actors Quest</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="styles.css">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche d'Acteurs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
 <body>
+    <div class="container mt-5">
+        <h1 class="text-center">Recherche d'Acteurs</h1>
 
-<!-- Ma Navbar (Barre de navigation) -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Actors Quest</a>
-    <!-- Bouton pour la navigation mobile -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <!-- Liens dans la barre de navigation -->
-            <li class="nav-item">
-                <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-<!-- Mon Header (En-tête) -->
-<header class="bg-primary text-white text-center py-5">
-    <h1>Actors Quest</h1>
-    <p>Recherchez un acteur pour obtenir des informations et sa filmographie</p>
-</header>
-
-<!-- Ma barre de recherche -->
-<div class="container my-4">
-    <div class="input-group mb-3">
-        <!-- Champ de texte pour entrer le nom de l'acteur -->
-        <input type="text" id="search" class="form-control" placeholder="Rechercher un acteur..." aria-label="Rechercher un acteur" aria-describedby="button-search">
-        <div class="input-group-append">
-            <!-- Bouton pour lancer la recherche -->
-            <button class="btn btn-primary" type="button" id="button-search">Rechercher</button>
+        <!-- Barre de recherche -->
+        <div class="form-group">
+            <input type="text" id="search" class="form-control" placeholder="Entrez un nom d'acteur">
         </div>
+        <button id="button-search" class="btn btn-primary">Rechercher</button>
+
+        <!-- Container pour afficher les résultats -->
+        <div id="results" class="row mt-4"></div>
+
+        <!-- Bouton pour afficher l'historique -->
+        <button id="history-button" class="btn btn-secondary mt-4">Afficher l'historique</button>
     </div>
-</div>
 
-<!-- Section pour afficher les résultats de la recherche -->
-<div class="container">
-    <div id="results" class="row"></div>
-</div>
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="main.js"></script>
 
-<!-- Mes fichiers JS -->
-<!-- Bootstrap JS (n'est plus nécessaire si tu n'utilises pas certains composants de Bootstrap) -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!-- Fichier de configuration avec la clé API -->
-<script src="config.js"></script>
-<!-- Script principal pour gérer la recherche et l'affichage des résultats -->
-<script src="main.js"></script>
 </body>
 </html>
